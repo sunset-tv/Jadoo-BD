@@ -1,0 +1,30 @@
+<body>
+
+  <!-- Bitmovin Player -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bitmovin-player@8/bitmovinplayer.js"></script>
+<div class="player-wrapper">
+  <div id="player"></div>
+</div>
+
+<script type="text/javascript">
+  var conf = {
+    key: 'ae48afd6-4814-4203-9f9b-cf936615bc8c',
+  
+  };
+
+  var source = {
+    title: 'Buddy Live',
+    dash: 'https://medialive.akash-go.com/out/v1/1eec5c4527b14f70bb9580fa18c331e8/index.mpd',
+		drm: {
+      widevine: {
+        LA_URL: 'https://bingeakashgo.live.ott.irdeto.com/licenseServer/widevine/v1/bingeakashgo/license?contentId=ekattor_hd&ls_session=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InJzYTIwNDhrZXkifQ.eyJzdWIiOiIxMjM0NTY3OCIsImlzcyI6Im9wZXJhdG9yLXBvcnRhbCIsImV4cCI6MTcyNDgxOTkyNSwiaWF0IjoxNzI0ODA1NTI1LCJhaWQiOiJiaW5nZWFrYXNoZ28iLCJqdGkiOiJiYzczOTQyOC1hYjRlLTQzZTYtODU0OS0xMTg4OTYyYTdjNjYiLCJlbnQiOlt7ImVwaWQiOiJzdWJzY3JpcHRpb24tZW50aXRsZW1lbnQtcG9saWN5IiwiYmlkIjoic3Vic2NyaXB0aW9uLWJ1bmRsZSJ9XX0.NBjvTp93zA7irJ0Ix7OeBCJdvxjiw4uPwbIjy7zCK3mWyJzQrzsDfCiv8eFpFkYMFyE5mdZB7ypnwkYvNzDFahVoyyTgv8Qr-n3hgkeAcFHcpiTGJ2kMsU0Lupu8dQ7doylaMxmPkqQMZHBLYW-WzJx0YfqyCZJY5HK0rcuzp2BWGzdGEpEmN1HnQahklyA1bYgwqgpeK7QSUiBuG0wU1fEfOh63s7Ia708TjTDq1JZeq-ZAoGllrL3SysWQVvlGzj5mjE_iRDNkI9ObVTZEHZ55GvL0gp2255cJz3vh7kGaFR1lUcNgvcPxz0XG8ta3eXRV04PjqFs0toyVQLvYYQ',
+      },
+    },
+  };
+
+  var player = new bitmovin.player.Player(document.getElementById('player'), conf);
+  player.load(source);
+</script>
+
+
+</body>

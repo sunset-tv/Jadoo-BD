@@ -1,0 +1,36 @@
+<body>
+<script src="blast.js"></script>
+<link rel="stylesheet" type="text/css" href="/assets/player/clappr/clap.css">
+<script src="//cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js" type="text/javascript"></script>
+<script src="//cdn.jsdelivr.net/gh/clappr/clappr-level-selector-pl
+ugin@latest/dist/level-selector.min.js" type="text/javascript"></script>
+<script src="//cdn.jsdelivr.net/npm/@clappr/hlsjs-playback@1.0.1/dist/hlsjs-playback.min.js"></script>
+<div id="player" style="height: 100%; width: 100%;"></div>
+
+<script type="text/javascript">
+  var conf = {
+    key: 'ae48afd6-4814-4203-9f9b-cf936615bc8c',
+  
+  };
+
+  var source = {
+    title: 'DurbinLIVE',
+    dash: 'https://medialive.akash-go.com/out/v1/1eec5c4527b14f70bb9580fa18c331e8/index.mpd',
+		drm: {
+      widevine: {
+        LA_URL: 'https://bingeakashgo.live.ott.irdeto.com/licenseServer/widevine/v1/bingeakashgo/license?contentId=ekattor_hd&ls_session=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InJzYTIwNDhrZXkifQ.eyJzdWIiOiIxMjM0NTY3OCIsImlzcyI6Im9wZXJhdG9yLXBvcnRhbCIsImV4cCI6MTcyNDgxOTkyNSwiaWF0IjoxNzI0ODA1NTI1LCJhaWQiOiJiaW5nZWFrYXNoZ28iLCJqdGkiOiJiYzczOTQyOC1hYjRlLTQzZTYtODU0OS0xMTg4OTYyYTdjNjYiLCJlbnQiOlt7ImVwaWQiOiJzdWJzY3JpcHRpb24tZW50aXRsZW1lbnQtcG9saWN5IiwiYmlkIjoic3Vic2NyaXB0aW9uLWJ1bmRsZSJ9XX0.NBjvTp93zA7irJ0Ix7OeBCJdvxjiw4uPwbIjy7zCK3mWyJzQrzsDfCiv8eFpFkYMFyE5mdZB7ypnwkYvNzDFahVoyyTgv8Qr-n3hgkeAcFHcpiTGJ2kMsU0Lupu8dQ7doylaMxmPkqQMZHBLYW-WzJx0YfqyCZJY5HK0rcuzp2BWGzdGEpEmN1HnQahklyA1bYgwqgpeK7QSUiBuG0wU1fEfOh63s7Ia708TjTDq1JZeq-ZAoGllrL3SysWQVvlGzj5mjE_iRDNkI9ObVTZEHZ55GvL0gp2255cJz3vh7kGaFR1lUcNgvcPxz0XG8ta3eXRV04PjqFs0toyVQLvYYQ',
+      },
+    },
+  };
+       width: '100%',
+       height: '100%',
+       autoPlay: true,
+       plugins: [HlsjsPlayback, LevelSelector],
+       mimeType: "application/x-mpegURL",
+       mediacontrol: { seekbar: "#ff0000", buttons: "#eee" },
+       parentId: "#player",
+       levelSelectorConfig: true // Disable the label selector
+});
+
+</script>
+</body>

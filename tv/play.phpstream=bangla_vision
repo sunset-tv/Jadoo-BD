@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Live Player</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript"></script>
+
+    <style type="text/css" media="screen" charset="utf-8">
+      #live-player {
+        position: fixed !important;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: black;
+      }
+      .dvr-player-wrapper {
+        background-color: black;
+      }
+    </style>
+  <link href="/flu/player/main.7438016f95db987abf15.css" rel="stylesheet"><script type="text/javascript" src="/flu/player/core-js.7438016f95db987abf15.js"></script><script type="text/javascript" src="/flu/player/sentry.7438016f95db987abf15.js"></script><script type="text/javascript" src="/flu/player/panzoom.7438016f95db987abf15.js"></script><script type="text/javascript" src="/flu/player/clappr.7438016f95db987abf15.js"></script><script type="text/javascript" src="/flu/player/flussonic.7438016f95db987abf15.js"></script><script type="text/javascript" src="/flu/player/shaka-player.7438016f95db987abf15.js"></script><script type="text/javascript" src="/flu/player/main.7438016f95db987abf15.js"></script></head>
+  <body>
+    <div id="live-player"></div>
+
+    <script type="text/javascript">
+      window.onload = function() {
+        var options = {
+          parentId: '#live-player',
+          width: '100%',
+          height: '100%',
+        }
+       source: 'https://edge01.iptv.digijadoo.net/live/atn_bangla/playlist.m3u8?md5=qHjI0nQ1wP56eBtE5nsAEg&expires=1724968602&user=ec6dd7dec84545a2a15edb664bb2d4aa', // Default source link
+        window.LivePlayer = new LivePlayer(params);
+        document.getElementsByTagName('title')[0].innerHTML = config.streamName;
+      }
+    </script>
+  </body>
+</html>

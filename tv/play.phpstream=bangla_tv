@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shaka Player Example with DRM</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/3.1.1/shaka-player.compiled.min.js"></script>
+</head>
+<body>
+  <video id="video" width="640" controls></video>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      shaka.polyfill.installAll();
+
+      if (shaka.Player.isBrowserSupported()) {
+        initApp().catch(console.error);
+      } else {
+        console.error('Browser not supported!');
+      }
+    });
+
+    async function initApp() {
+      const video = document.getElementById('video');
+      const player = new shaka.Player(video);
+
+      window.player = player;
+
+      player.addEventListener('error', onErrorEvent);
+
+      const manifestUri = 'https://medialive.akash-go.com/out/v1/a1a4886d7bdd4797a0eebb69e2c67554/index.mpd';
+
+      // DRM 
+      player.configure({
+        drm: {
+          servers: {
+            'com.widevine.alpha': 'https://bingeakashgo.live.ott.irdeto.com/licenseServer/widevine/v1/bingeakashgo/license?contentId=jalsha_movies&ls_session=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InJzYTIwNDhrZXkifQ.eyJzdWIiOiIxMjM0NTY3OCIsImlzcyI6Im9wZXJhdG9yLXBvcnRhbCIsImV4cCI6MTcyNDgzNDEyOSwiaWF0IjoxNzI0ODE5NzI5LCJhaWQiOiJiaW5nZWFrYXNoZ28iLCJqdGkiOiIwMzliZTU5Mi01ZjM0LTRhNDctOWQ3YS02Nzg1Zjc2NWY4OWYiLCJlbnQiOlt7ImVwaWQiOiJzdWJzY3JpcHRpb24tZW50aXRsZW1lbnQtcG9saWN5IiwiYmlkIjoic3Vic2NyaXB0aW9uLWJ1bmRsZSJ9XX0.kiwcKIjv-OxRMKAwnD0QxPRDFP2jTOhDQsMvB7TAdkD1p6vDzBWDkOHgigPjG4niPIF9SG6YzGJO7XXodGgK1E4wVvwo9FCL0v57Pc0C2xXuQSkC09a_DZswzQVR3SnNJLMNhTEh8qZac4P3N4iU5AMKGKy4dLrBUnUubBUlbDsMHtecXKacJnBLHVmzpeonGI8nnU6cK88l2QaY3CSiI9UWuakRKHoHGGK_hLraSWmZwXKWn4rWi55r7k93r6IMz3pVBvq-6hOMz4syFEO8W_vkyMtoTHlTkjeCxSAnE1Tbu4vyNB_iGSQdxsvQWCChPbwUCYTooqVTxij-adsgbA'
+          }
+        }
+      });
+
+      try {
+        await player.load(manifestUri);
+        console.log('The video has been loaded!');
+      } catch (e) {
+        onError(e);
+      }
+    }
+
+    function onErrorEvent(event) {
+      onError(event.detail);
+    }
+
+    function onError(error) {
+      console.error('Error code', error.code, 'object', error);
+    }
+  </script>
+</body>
+</html>
